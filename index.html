@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デバッグデータ可視化</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #controls {
+            padding: 10px;
+            background: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        #controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        #phaseLabel {
+            margin: 10px;
+            text-align: center;
+        }
+
+        #container {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+
+        /* コメント領域を広めに、11px フォント、行間ゼロ */
+        #comments {
+            width: 60%;
+            padding: 16px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            background: #fff;
+            border-left: 1px solid #ccc;
+            font-size: 11px;
+        }
+
+        #comments p {
+            margin: 0;
+            word-break: break-word;
+        }
+
+        /* ビジュアル領域 */
+        #visualization {
+            width: 40%;
+            padding: 16px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            background: #f0f0f0;
+        }
+
+        .visualizer-title {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .main-value {
+            margin-bottom: 14px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* sub 表示ラッパー */
+        .bar-wrapper {
+            margin-bottom: 12px;
+        }
+
+        .amountCMY {
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+        }
+
+        .item {
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #333;
+        }
+
+        .size-label {
+            font-size: 12px;
+            margin-left: 4px;
+            min-width: 60px;
+        }
+
+        .keyword {
+            font-weight: bold;
+            color: #d00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls">
+        <button id="firstBtn">開始前処理へ</button>
+        <button id="prevBtn">前へ</button>
+        <button id="nextBtn">次へ</button>
+        <button id="lastBtn">最終処理へ</button>
+    </div>
+    <h2 id="phaseLabel"></h2>
+    <div id="container">
+        <div id="visualization"></div>
+        <div id="comments"></div>
+    </div>
+
+    <script>
+        let phases = [];
+        let current = 0;
+        let globalMax = 100; // 初期値。開始前処理で置き換え。
+
+        fetch('./data.txt')
+            .then(res => res.text())
+            .then(rawData => {
+                const parts = rawData.split(/-----\s*(.*?)\s*-----/g).slice(1);
+                for (let i = 0; i < parts.length; i += 2) {
+                    phases.push({ label: parts[i], body: parts[i + 1].trim() });
+                }
+                // 開始前処理コメントから最大値を取得
+                const start = phases.find(p => /開始前処理/.test(p.label));
+                if (start) {
+                    const m = start.body.match(/最大は\s*(\d+)\s*マス/);
+                    if (m) globalMax = parseInt(m[1]);
+                }
+                render();
+            });
+
+        /* CMY -> RGB */
+        function cmyToRgb(c, m, y) {
+            const r = Math.round((1 - c) * 255);
+            const g = Math.round((1 - m) * 255);
+            const b = Math.round((1 - y) * 255);
+            return [r, g, b];
+        }
+        /* 背景に合わせたテキスト色 */
+        function textColorForBg(r, g, b) {
+            const brightness = r * 0.299 + g * 0.587 + b * 0.114;
+            return brightness < 128 ? '#fff' : '#000';
+        }
+
+        function render() {
+            const viz = document.getElementById('visualization');
+            const com = document.getElementById('comments');
+            viz.innerHTML = '';
+            com.innerHTML = '';
+            document.getElementById('phaseLabel').textContent = phases[current].label;
+
+            const lines = phases[current].body.split('\n');
+
+            /* コメント表示：# を除く */
+            lines.filter(l => l.trim().startsWith('#')).forEach(l => {
+                const p = document.createElement('p');
+                const txt = l.replace(/^#\s*/, '');
+                // 空行保持用に nbsp
+                p.innerHTML = (txt === '' ? '&nbsp;' :
+                    txt.replace(/(キープ|拡張)/g,
+                        '<span class="keyword">$1</span>'));
+                com.appendChild(p);
+            });
+
+            /* main */
+            const title = document.createElement('div');
+            title.className = 'visualizer-title';
+            title.textContent = `現在の状態`;
+            viz.appendChild(title);
+            const mainLine = lines.find(l => /^\[main\]/.test(l));
+            if (mainLine) {
+                const size = mainLine.match(/size:\s*(\d+)/)[1];
+                const amount = mainLine.match(/amount:\s*([0-9.]+)/)[1];
+                const cmys = mainLine.match(/CMY:\s*\[([^\]]+)\]/)[1];
+                const mv = document.createElement('div');
+                mv.className = 'main-value';
+                mv.textContent = `main  size: ${size}, amount: ${amount}`;
+                const mv2 = document.createElement('div');
+                mv2.className = 'main-value';
+                mv2.textContent = `main  CMY: [${cmys}]`;
+                viz.appendChild(mv);
+                viz.appendChild(mv2);
+            }
+
+            /* subs */
+            lines.filter(l => /^\[sub\d+\]/.test(l)).forEach(l => {
+                const size = parseInt(l.match(/size:\s*(\d+)/)[1]);
+                const amount = l.match(/amount:\s*([0-9.]+)/)[1];
+                const cmyMatch = l.match(/CMY:\s*\[([0-9eE+\-.]+) ([0-9eE+\-.]+) ([0-9eE+\-.]+)\]/);
+                const c = parseFloat(cmyMatch[1]);
+                const m = parseFloat(cmyMatch[2]);
+                const y = parseFloat(cmyMatch[3]);
+                const [r, g, b] = cmyToRgb(c, m, y);
+
+                // ラッパー
+                const wrapper = document.createElement('div');
+                wrapper.className = 'bar-wrapper';
+
+                // amount + CMY
+                const labelTop = document.createElement('div');
+                labelTop.className = 'amountCMY';
+                labelTop.textContent = `amount: ${amount}, CMY: [${c.toFixed(3)} ${m.toFixed(3)} ${y.toFixed(3)}]`;
+                wrapper.appendChild(labelTop);
+
+                // 行 (バー + size)
+                const row = document.createElement('div');
+                row.className = 'row';
+
+                const bar = document.createElement('div');
+                bar.className = 'item';
+                bar.style.width = ((size / globalMax) * 100) + '%';
+                if (!(c === 0 && m === 0 && y === 0)) {
+                    bar.style.backgroundColor = `rgb(${r},${g},${b})`;
+                    bar.style.color = textColorForBg(r, g, b);
+                } else {
+                    bar.style.backgroundColor = '#5c95c5';
+                }
+
+                const sizeLbl = document.createElement('span');
+                sizeLbl.className = 'size-label';
+                sizeLbl.textContent = `size: ${size}`;
+
+                row.appendChild(bar);
+                row.appendChild(sizeLbl);
+                wrapper.appendChild(row);
+                viz.appendChild(wrapper);
+            });
+        }
+
+        /* ナビ */
+        document.getElementById('firstBtn').onclick = () => { current = 0; render(); };
+        document.getElementById('lastBtn').onclick = () => { current = phases.length - 1; render(); };
+        document.getElementById('prevBtn').onclick = () => { if (current > 0) { current--; render(); } };
+        document.getElementById('nextBtn').onclick = () => { if (current < phases.length - 1) { current++; render(); } };
+    </script>
+</body>
+
+</html>
