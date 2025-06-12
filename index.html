@@ -92,7 +92,7 @@
         .item {
             height: 30px;
             border-radius: 4px;
-            border: 1px solid #333;
+            border: 2px solid #000;
         }
 
         .size-label {
@@ -104,6 +104,263 @@
         .keyword {
             font-weight: bold;
             color: #d00;
+        }
+
+        /* レシピステップビジュアライザー */
+        .recipe-visualizer {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+            padding: 16px;
+        }
+
+        .recipe-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .recipe-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .recipe-controls button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .recipe-controls .prev-btn {
+            background: #666;
+            color: white;
+        }
+
+        .recipe-controls .next-btn {
+            background: #333;
+            color: white;
+        }
+
+        .recipe-controls button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .recipe-step {
+            margin-bottom: 16px;
+        }
+
+        .step-header {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .step-content {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+            border-left: 4px solid #333;
+        }
+
+        .step-visual {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            gap: 8px;
+        }
+
+        .step-bar {
+            height: 20px;
+            border: 1px solid #333;
+            border-radius: 2px;
+            background: #ddd;
+            position: relative;
+            min-width: 60px;
+        }
+
+        .step-bar-fill {
+            height: 100%;
+            border-radius: 1px;
+            transition: width 0.3s ease;
+        }
+
+        .step-arrow {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .step-text {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .recipe-result {
+            background: #e9ecef;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        /* 新しいレシピビジュアライザー用スタイル */
+        .recipe-state-visualizer {
+            margin-bottom: 20px;
+        }
+
+        .sub-container {
+            margin-bottom: 16px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .sub-header {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .sub-visual {
+            position: relative;
+            height: 40px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .paint-canvas {
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+        }
+
+        .paint-section {
+            display: flex;
+            flex: 1;
+        }
+
+        .paint-area {
+            border-right: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .paint-area:last-child {
+            border-right: none;
+        }
+
+        .keep-divider {
+            border-left: 3px solid #ff6b35;
+        }
+
+        .mixed-result {
+            width: 50px;
+            border-left: 3px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .sub-info {
+            font-size: 11px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 色プレビューセクション */
+        .color-preview-section {
+            margin-top: 20px;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .color-preview-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .color-comparison {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .color-sample {
+            flex: 1;
+            text-align: center;
+        }
+
+        .color-sample-title {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #666;
+        }
+
+        .color-box {
+            width: 100%;
+            height: 60px;
+            border: 2px solid #000;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-info {
+            font-size: 10px;
+            color: #666;
+            line-height: 1.2;
+        }
+
+        .error-display {
+            text-align: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .error-value {
+            font-size: 14px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .error-label {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -126,6 +383,66 @@
         let current = 0;
         let globalMax = 100; // 初期値。開始前処理で置き換え。
 
+        /* 新しいState管理構造 */
+        class Area {
+            constructor(size = 0, amount = 0) {
+                this.size = size;
+                this.amount = amount;
+            }
+
+            get density() {
+                return this.size > 0 ? this.amount / this.size : 0;
+            }
+
+            get opacity() {
+                // 密度に応じて濃さと薄さを急激に変化させる（0.3乗）
+                // 0.01 → 0.22, 0.04 → 0.34, 0.25 → 0.63, 1.0 → 1.0
+                const adjustedOpacity = Math.pow(this.density, 0.3);
+                return Math.min(1.0, Math.max(0.0, adjustedOpacity));
+            }
+        }
+
+        class SubState {
+            constructor(id, color, maxSize = 95) {
+                this.id = id;
+                this.color = color;
+                this.maxSize = maxSize;
+                this.keeps = []; // キープエリア配列
+                this.current = new Area(); // 現在のメインエリア
+                this.room = null; // 拡張時の一時エリア
+                this.pending = null; // 排出待ちエリア
+                this.empty = new Area(); // 空エリア
+            }
+
+            get totalSize() {
+                const keepsSize = this.keeps.reduce((sum, keep) => sum + keep.size, 0);
+                const currentSize = this.current.size;
+                const roomSize = this.room ? this.room.size : 0;
+                const pendingSize = this.pending ? this.pending.size : 0;
+                return keepsSize + currentSize + roomSize + pendingSize;
+            }
+
+            updateEmpty() {
+                this.empty.size = this.maxSize - this.totalSize;
+                this.empty.amount = 0;
+            }
+        }
+
+        class State {
+            constructor(stepIndex = 0, hint = '', message = '') {
+                this.stepIndex = stepIndex;
+                this.subs = [];
+                this.hint = hint;
+                this.message = message;
+                this.submittedColors = []; // 排出済み色履歴をStateに含める
+            }
+        }
+
+        let allStates = []; // 全ステップの状態配列
+        let currentStateIndex = 0;
+        let recipeSteps = [];
+        let baseColors = []; // 各subの基本色
+
         fetch('./data.txt')
             .then(res => res.text())
             .then(rawData => {
@@ -133,11 +450,18 @@
                 for (let i = 0; i < parts.length; i += 2) {
                     phases.push({ label: parts[i], body: parts[i + 1].trim() });
                 }
-                // 開始前処理コメントから最大値を取得
+                // 開始前処理コメントから最大値とK値を取得
                 const start = phases.find(p => /開始前処理/.test(p.label));
                 if (start) {
                     const m = start.body.match(/最大は\s*(\d+)\s*マス/);
                     if (m) globalMax = parseInt(m[1]);
+
+                    // K値（色数）を取得して基本色を生成
+                    const kMatch = start.body.match(/K\s*=\s*(\d+)/);
+                    if (kMatch) {
+                        const colorCount = parseInt(kMatch[1]);
+                        baseColors = generateBaseColors(colorCount);
+                    }
                 }
                 render();
             });
@@ -155,12 +479,955 @@
             return brightness < 128 ? '#fff' : '#000';
         }
 
+        /* 基本色の生成 */
+        function generateBaseColors(count) {
+            const colors = [];
+            for (let i = 0; i < count; i++) {
+                const hue = (i * 360 / count) % 360;
+                colors.push(`hsl(${hue}, 70%, 60%)`);
+            }
+            return colors;
+        }
+
+
+        /* レシピ解析（二段階仕切り対応） */
+        function parseRecipe(bodyText) {
+            const lines = bodyText.split('\n');
+            const recipeStart = lines.findIndex(l => l.includes('〇最適なレシピ'));
+            if (recipeStart === -1) return [];
+
+            const recipeLines = lines.slice(recipeStart);
+            const steps = [];
+            let currentSub = null;
+            let currentSteps = [];
+
+            for (const line of recipeLines) {
+                const trimmed = line.trim();
+                if (trimmed.startsWith('# sub') && trimmed.includes('のレシピ')) {
+                    // 前のsubの処理を完了
+                    if (currentSub) {
+                        steps.push({
+                            sub: currentSub,
+                            steps: [...currentSteps]
+                        });
+                    }
+                    // 新しいsubの開始
+                    const subMatch = trimmed.match(/sub(\d+)/);
+                    const targetMatch = trimmed.match(/目標調合比\s*([0-9.]+)/);
+                    currentSub = {
+                        id: subMatch ? parseInt(subMatch[1]) : 0,
+                        target: targetMatch ? parseFloat(targetMatch[1]) : 0
+                    };
+                    currentSteps = [];
+                } else if (trimmed.startsWith('# ・') && currentSub) {
+                    // ステップの追加（二段階化）
+                    const stepText = trimmed.replace('# ・', '');
+
+                    // キープ処理（仕切り設置のみ）
+                    if (stepText.includes('マスをキープ')) {
+                        const keepMatch = stepText.match(/(\d+)マスをキープ/);
+                        if (keepMatch) {
+                            currentSteps.push(`キープ用仕切りを設置してキープ領域を確保`);
+                        }
+                    }
+                    // 拡張処理を詳細に分ける
+                    else if (stepText.includes('マス拡張')) {
+                        const expandMatch = stepText.match(/(\d+)マス拡張.*?(\d+)マスに/);
+                        if (expandMatch) {
+                            const expandSize = expandMatch[1];
+                            const newSize = expandMatch[2];
+                            currentSteps.push(`拡張先に新しい仕切りを設置`);
+                            currentSteps.push(`元の仕切りを解除してインクが${expandSize}マス分流れ込み${newSize}マスに拡張（色が薄くなる）`);
+                        }
+                    }
+                    // 取り出し処理（仕切り設置と排出を分離）
+                    else if (stepText.includes('マス取り')) {
+                        const takeMatch = stepText.match(/(\d+)マス取り/);
+                        if (takeMatch) {
+                            const takeSize = takeMatch[1];
+                            currentSteps.push(`右から${takeSize}マス位置に仕切りを設置`);
+                            currentSteps.push(`仕切り解除してメインエリアに排出`);
+                        }
+                    }
+                    // その他のステップはそのまま
+                    else {
+                        currentSteps.push(stepText);
+                    }
+                } else if (trimmed.startsWith('# 以上により') && currentSub) {
+                    // 結果の追加（計算説明なのでステップには含めない）
+                    // const resultText = trimmed.replace('# ', '');
+                    // currentSteps.push(resultText);
+                } else if (trimmed.startsWith('# 調合比') && currentSub) {
+                    // 最終調合比
+                    const ratioMatch = trimmed.match(/調合比\s*=\s*([0-9.]+)/);
+                    if (ratioMatch) {
+                        currentSub.finalRatio = parseFloat(ratioMatch[1]);
+                    }
+                }
+            }
+
+            // 最後のsubの処理
+            if (currentSub) {
+                steps.push({
+                    sub: currentSub,
+                    steps: [...currentSteps]
+                });
+            }
+
+            return steps;
+        }
+
+        /* レシピビジュアライザーの作成 */
+        function createRecipeVisualizer() {
+            const viz = document.getElementById('visualization');
+
+            // 現在のフェーズのsubデータを取得
+            const lines = phases[current].body.split('\n');
+            const subLines = lines.filter(l => /^\[sub\d+\]/.test(l));
+
+            const recipeDiv = document.createElement('div');
+            recipeDiv.className = 'recipe-visualizer';
+            recipeDiv.innerHTML = `
+                <div class="recipe-title">最適なレシピ - ステップバイステップ</div>
+                <div class="recipe-controls">
+                    <button class="prev-btn" onclick="prevRecipeStep()">← 前のステップ</button>
+                    <span id="recipeStepCounter">1 / 1</span>
+                    <button class="next-btn" onclick="nextRecipeStep()">次のステップ →</button>
+                </div>
+                <div class="recipe-state-visualizer"></div>
+                <div id="recipeStepContent"></div>
+            `;
+
+            viz.appendChild(recipeDiv);
+
+            // 強制的にsub-containerを作成
+            const stateViz = recipeDiv.querySelector('.recipe-state-visualizer');
+            subLines.forEach((line, index) => {
+                const size = parseInt(line.match(/size:\s*(\d+)/)[1]);
+                const container = document.createElement('div');
+                container.className = 'sub-container';
+
+                const header = document.createElement('div');
+                header.textContent = `sub${index}`;
+
+                const paintSection = document.createElement('div');
+                paintSection.className = 'paint-section';
+                paintSection.style.width = '100%';
+                paintSection.style.height = '40px';
+                paintSection.style.border = '1px solid #ccc';
+                paintSection.style.position = 'relative';
+
+                container.appendChild(header);
+                container.appendChild(paintSection);
+                stateViz.appendChild(container);
+            });
+
+            console.log('sub-containers created:', document.querySelectorAll('.sub-container').length);
+        }
+
+        /* 各subの状態可視化を作成 */
+        function createStateVisualization(subLines) {
+            const stateViz = document.querySelector('.recipe-state-visualizer');
+            console.log('createStateVisualization開始, stateViz:', stateViz);
+            console.log('subLines:', subLines);
+
+            // 各subの状態を初期化
+            initializeSubStates(subLines);
+
+            subLines.forEach((line, index) => {
+                const size = parseInt(line.match(/size:\s*(\d+)/)[1]);
+                const amount = parseFloat(line.match(/amount:\s*([0-9.]+)/)[1]);
+                const cmyMatch = line.match(/CMY:\s*\[([0-9eE+\-.]+) ([0-9eE+\-.]+) ([0-9eE+\-.]+)\]/);
+                const c = parseFloat(cmyMatch[1]);
+                const m = parseFloat(cmyMatch[2]);
+                const y = parseFloat(cmyMatch[3]);
+                const [r, g, b] = cmyToRgb(c, m, y);
+
+                const container = document.createElement('div');
+                container.className = 'sub-container';
+
+                const header = document.createElement('div');
+                header.className = 'sub-header';
+                header.textContent = `sub${index} (size: ${size})`;
+
+                const visual = document.createElement('div');
+                visual.className = 'sub-visual';
+
+                // DOM要素で描画（Canvas問題を回避）
+                const paintSection = document.createElement('div');
+                paintSection.className = 'paint-section';
+                paintSection.style.position = 'relative';
+                paintSection.style.width = '100%';
+                paintSection.style.height = '40px';
+                paintSection.style.display = 'flex';
+                paintSection.id = `paint-sub${index}`;
+
+                visual.appendChild(paintSection);
+
+                // 初期状態を描画
+                // 旧システム - 新システムで置き換え済み
+                console.log('旧drawSubStateDOM呼び出しをスキップ');
+
+                // 右側：調合結果（後でステップごとに更新）
+                const mixedResult = document.createElement('div');
+                mixedResult.className = 'mixed-result';
+                mixedResult.style.backgroundColor = '#ddd';
+                mixedResult.textContent = '?';
+                visual.appendChild(mixedResult);
+
+                const info = document.createElement('div');
+                info.className = 'sub-info';
+                info.innerHTML = `
+                    <span>amount: ${amount.toFixed(3)}</span>
+                    <span>CMY: [${c.toFixed(3)} ${m.toFixed(3)} ${y.toFixed(3)}]</span>
+                `;
+
+                container.appendChild(header);
+                container.appendChild(visual);
+                container.appendChild(info);
+                stateViz.appendChild(container);
+            });
+        }
+
+        /* 新しいレンダリング関数 */
+        function renderArea(area, type, color, maxSize) {
+            const div = document.createElement('div');
+            div.className = 'area-section';
+            div.style.height = '100%';
+            div.style.display = 'flex';
+            div.style.alignItems = 'center';
+            div.style.justifyContent = 'center';
+            div.style.fontSize = '10px';
+            div.style.fontWeight = 'bold';
+            div.style.borderRight = '2px solid #000';
+            div.style.width = `${(area.size / maxSize) * 100}%`;
+            div.style.boxSizing = 'border-box'; // 境界線を内側に含める
+
+            const opacity = area.opacity;
+            let bgColor, textColor, label;
+
+            switch (type) {
+                case 'keep':
+                    const keepRgb = hexToRgb(color);
+                    bgColor = `rgba(${keepRgb.r}, ${keepRgb.g}, ${keepRgb.b}, ${opacity})`;
+                    textColor = '#000';
+                    label = area.size > 2 ? `Keep:${area.size}` : '';
+                    break;
+                case 'current':
+                    const rgb = hexToRgb(color);
+                    bgColor = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+                    textColor = '#000';
+                    label = area.size > 2 ? `Use:${area.size}` : '';
+                    break;
+                case 'room':
+                    const roomRgb = hexToRgb(color);
+                    bgColor = `rgba(${roomRgb.r}, ${roomRgb.g}, ${roomRgb.b}, ${opacity})`;
+                    textColor = '#000';
+                    label = area.size > 2 ? `+${area.size}` : '';
+                    break;
+                case 'pending':
+                    const pendingRgb = hexToRgb(color);
+                    bgColor = `rgba(${pendingRgb.r}, ${pendingRgb.g}, ${pendingRgb.b}, ${opacity})`;
+                    textColor = '#000';
+                    label = area.size > 2 ? `Take:${area.size}` : '';
+                    break;
+                case 'empty':
+                    const emptyRgb = hexToRgb(color);
+                    bgColor = `rgba(${emptyRgb.r}, ${emptyRgb.g}, ${emptyRgb.b}, ${opacity})`;
+                    textColor = '#000';
+                    label = area.size > 2 ? `Empty:${area.size}` : '';
+                    break;
+                default:
+                    bgColor = '#ddd';
+                    textColor = '#333';
+                    label = '';
+            }
+
+            div.style.backgroundColor = bgColor;
+            div.style.color = textColor;
+            div.style.textShadow = 'none';
+            div.textContent = label;
+
+            // keepエリアには斜線パターンを追加
+            if (type === 'keep') {
+                div.style.backgroundImage = 'repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.3) 3px, rgba(255,255,255,0.3) 6px)';
+            }
+
+            return div;
+        }
+
+        function renderSubState(subState) {
+            const container = document.createElement('div');
+            container.className = 'sub-state-container';
+            container.style.display = 'flex';
+            container.style.height = '100%';
+            container.style.width = '100%';
+            container.style.position = 'relative';
+
+            // キープエリアを追加
+            subState.keeps.forEach(keep => {
+                container.appendChild(renderArea(keep, 'keep', subState.color, subState.maxSize));
+            });
+
+            // 現在エリアを追加
+            if (subState.current.size > 0) {
+                container.appendChild(renderArea(subState.current, 'current', subState.color, subState.maxSize));
+            }
+
+            // 拡張エリアを追加
+            if (subState.room && subState.room.size > 0) {
+                container.appendChild(renderArea(subState.room, 'room', subState.color, subState.maxSize));
+            }
+
+            // 排出待ちエリアを追加
+            if (subState.pending && subState.pending.size > 0) {
+                container.appendChild(renderArea(subState.pending, 'pending', subState.color, subState.maxSize));
+            }
+
+            // 空エリアを追加
+            if (subState.empty.size > 0) {
+                container.appendChild(renderArea(subState.empty, 'empty', subState.color, subState.maxSize));
+            }
+
+            // 最後の境界線を削除
+            if (container.lastChild) {
+                container.lastChild.style.borderRight = 'none';
+            }
+
+            // サイズ情報
+            const totalAmount = subState.keeps.reduce((sum, keep) => sum + keep.amount, 0) + subState.current.amount + (subState.room?.amount || 0);
+            const totalSize = subState.totalSize;
+            const avgDensity = totalSize > 0 ? (totalAmount / totalSize).toFixed(3) : '0.000';
+
+            const sizeInfo = document.createElement('div');
+            sizeInfo.style.position = 'absolute';
+            sizeInfo.style.bottom = '2px';
+            sizeInfo.style.left = '4px';
+            sizeInfo.style.fontSize = '9px';
+            sizeInfo.style.color = '#666';
+            sizeInfo.style.backgroundColor = 'rgba(255,255,255,0.8)';
+            sizeInfo.style.padding = '1px 3px';
+            sizeInfo.style.borderRadius = '2px';
+            sizeInfo.textContent = `${totalSize}/${subState.maxSize} (${totalAmount.toFixed(2)}g, 密度:${avgDensity})`;
+            container.appendChild(sizeInfo);
+
+            // 排出待ちエリアの統計オーバーレイ（Takeステップ時のみ表示）
+            if (subState.pending && subState.pending.size > 0) {
+                // Takeエリアの位置を計算
+                let takeAreaLeft = 0;
+                const totalUsedSize = subState.keeps.reduce((sum, keep) => sum + keep.size, 0) + subState.current.size + (subState.room?.size || 0);
+                takeAreaLeft = (totalUsedSize / subState.maxSize) * 100;
+                const takeAreaWidth = (subState.pending.size / subState.maxSize) * 100;
+
+                const takeOverlay = document.createElement('div');
+                takeOverlay.className = 'take-stats-overlay';
+                takeOverlay.style.position = 'absolute';
+                takeOverlay.style.top = '100%';
+                takeOverlay.style.left = `${takeAreaLeft + takeAreaWidth / 2}%`;
+                takeOverlay.style.transform = 'translateX(-50%)';
+                takeOverlay.style.backgroundColor = 'rgba(40, 167, 69, 0.95)';
+                takeOverlay.style.color = 'white';
+                takeOverlay.style.padding = '3px 8px';
+                takeOverlay.style.fontSize = '9px';
+                takeOverlay.style.fontWeight = 'bold';
+                takeOverlay.style.borderRadius = '8px';
+                takeOverlay.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+                takeOverlay.style.zIndex = '1000';
+                takeOverlay.style.textAlign = 'center';
+                takeOverlay.style.whiteSpace = 'nowrap';
+                takeOverlay.style.minWidth = 'fit-content';
+
+                takeOverlay.textContent = `📤 ${subState.pending.amount.toFixed(3)}g`;
+
+                container.appendChild(takeOverlay);
+            }
+
+            return container;
+        }
+
+        function renderState(state) {
+            console.log('renderState called with state:', state);
+            const containers = document.querySelectorAll('.sub-container');
+            containers.forEach((container, index) => {
+                if (state.subs[index]) {
+                    console.log(`Rendering sub${index}:`, state.subs[index]);
+                    const paintSection = container.querySelector('.paint-section');
+                    if (paintSection) {
+                        paintSection.innerHTML = '';
+                        paintSection.style.border = '2px solid #000';
+                        paintSection.style.borderRadius = '4px';
+                        const renderedSub = renderSubState(state.subs[index]);
+                        paintSection.appendChild(renderedSub);
+                    } else {
+                        console.warn(`paint-section not found for sub${index}`, container);
+                    }
+                }
+            });
+
+            // ヒントとメッセージを更新
+            const stepCounter = document.querySelector('#recipeStepCounter');
+            if (stepCounter) {
+                stepCounter.textContent = `${currentStateIndex + 1} / ${allStates.length}`;
+            }
+
+            const stepContent = document.querySelector('#recipeStepContent');
+            if (stepContent && state.hint) {
+                stepContent.innerHTML = `
+                    <div class="step-info">
+                        <div class="step-hint">${state.hint}</div>
+                        <div class="step-message">${state.message}</div>
+                    </div>
+                `;
+            }
+
+            // 色プレビューを更新
+            updateColorPreview(state);
+        }
+
+        function updateColorPreview(state) {
+            console.log('updateColorPreview called with state:', state);
+            let colorPreviewSection = document.querySelector('.color-preview-section');
+            if (!colorPreviewSection) {
+                colorPreviewSection = document.createElement('div');
+                colorPreviewSection.className = 'color-preview-section';
+
+                const recipeVisualizer = document.querySelector('.recipe-visualizer');
+                if (recipeVisualizer) {
+                    recipeVisualizer.appendChild(colorPreviewSection);
+                    console.log('Color preview section created and added');
+                } else {
+                    console.warn('Recipe visualizer not found');
+                    return;
+                }
+            }
+
+            try {
+                const targetCMY = calculateTargetColor();
+                const submittedCMY = calculateSubmittedColor(state);
+
+                console.log('Target CMY:', targetCMY);
+                console.log('Submitted CMY:', submittedCMY);
+                console.log('Submitted colors count:', state ? state.submittedColors.length : 0);
+
+                // CMYからRGBに変換
+                const targetRGB = cmyToRgb(targetCMY[0], targetCMY[1], targetCMY[2]);
+
+                let submittedDisplay, distanceDisplay;
+
+                if (submittedCMY === null) {
+                    // 未排出の場合
+                    submittedDisplay = {
+                        rgb: [255, 255, 255], // 白背景
+                        cmy: [0, 0, 0],
+                        label: '未排出',
+                        info: 'まだ排出されていません'
+                    };
+                    distanceDisplay = {
+                        value: '---',
+                        label: '排出後に計算されます'
+                    };
+                } else {
+                    // 排出済みの場合
+                    const submittedRGB = cmyToRgb(submittedCMY[0], submittedCMY[1], submittedCMY[2]);
+                    const distance = calculateColorDistance(targetCMY, submittedCMY);
+
+                    submittedDisplay = {
+                        rgb: submittedRGB,
+                        cmy: submittedCMY,
+                        label: '実際',
+                        info: `CMY: [${submittedCMY[0].toFixed(3)}, ${submittedCMY[1].toFixed(3)}, ${submittedCMY[2].toFixed(3)}]`
+                    };
+                    distanceDisplay = {
+                        value: distance.toFixed(6),
+                        label: 'ユークリッド距離（CMY空間での誤差）'
+                    };
+                }
+
+                console.log('Target RGB:', targetRGB);
+                console.log('Submitted display:', submittedDisplay);
+
+                colorPreviewSection.innerHTML = `
+                    <div class="color-preview-title">色調合結果</div>
+                    <div class="color-comparison">
+                        <div class="color-sample">
+                            <div class="color-sample-title">目標色</div>
+                            <div class="color-box" style="background-color: rgb(${targetRGB[0]}, ${targetRGB[1]}, ${targetRGB[2]});">
+                                目標
+                            </div>
+                            <div class="color-info">
+                                CMY: [${targetCMY[0].toFixed(3)}, ${targetCMY[1].toFixed(3)}, ${targetCMY[2].toFixed(3)}]
+                            </div>
+                        </div>
+                        <div class="color-sample">
+                            <div class="color-sample-title">メイン調合エリア</div>
+                            <div class="color-box" style="background-color: rgb(${submittedDisplay.rgb[0]}, ${submittedDisplay.rgb[1]}, ${submittedDisplay.rgb[2]}); ${submittedCMY === null ? 'color: black; text-shadow: none;' : ''}">
+                                ${submittedDisplay.label}
+                            </div>
+                            <div class="color-info">
+                                ${submittedDisplay.info}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-display">
+                        <div class="error-value">${distanceDisplay.value}</div>
+                        <div class="error-label">${distanceDisplay.label}</div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error in updateColorPreview:', error);
+                colorPreviewSection.innerHTML = `<div class="color-preview-title">色調合結果 (エラー)</div><div style="color: red;">エラーが発生しました: ${error.message}</div>`;
+            }
+        }
+
+        /* HSL色をRGBに変換 */
+        function hexToRgb(color) {
+            if (color.startsWith('hsl')) {
+                const match = color.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+                if (match) {
+                    const h = parseInt(match[1]) / 360;
+                    const s = parseInt(match[2]) / 100;
+                    const l = parseInt(match[3]) / 100;
+
+                    const hue2rgb = (p, q, t) => {
+                        if (t < 0) t += 1;
+                        if (t > 1) t -= 1;
+                        if (t < 1 / 6) return p + (q - p) * 6 * t;
+                        if (t < 1 / 2) return q;
+                        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+                        return p;
+                    };
+
+                    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                    const p = 2 * l - q;
+
+                    return {
+                        r: Math.round(hue2rgb(p, q, h + 1 / 3) * 255),
+                        g: Math.round(hue2rgb(p, q, h) * 255),
+                        b: Math.round(hue2rgb(p, q, h - 1 / 3) * 255)
+                    };
+                }
+            }
+            return { r: 128, g: 128, b: 128 }; // デフォルト値
+        }
+
+        /* HSLからCMYへの変換 */
+        function hslToCmy(hslColor) {
+            // HSL文字列から値を抽出
+            const match = hslColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+            if (!match) return [0, 0, 0];
+
+            const h = parseInt(match[1]) / 360;
+            const s = parseInt(match[2]) / 100;
+            const l = parseInt(match[3]) / 100;
+
+            // HSLからRGBに変換
+            const hue2rgb = (p, q, t) => {
+                if (t < 0) t += 1;
+                if (t > 1) t -= 1;
+                if (t < 1 / 6) return p + (q - p) * 6 * t;
+                if (t < 1 / 2) return q;
+                if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+                return p;
+            };
+
+            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+            const p = 2 * l - q;
+
+            const r = hue2rgb(p, q, h + 1 / 3);
+            const g = hue2rgb(p, q, h);
+            const b = hue2rgb(p, q, h - 1 / 3);
+
+            // RGBからCMYに変換
+            const c = 1 - r;
+            const m = 1 - g;
+            const y = 1 - b;
+
+            return [c, m, y];
+        }
+
+        /* 現在のフェーズから目標調合比を抽出 */
+        function extractTargetBlendRatio() {
+            if (!phases[current]) {
+                console.error('Current phase not found');
+                return [];
+            }
+
+            const bodyText = phases[current].body;
+            console.log('Extracting target blend ratio from phase:', phases[current].label);
+
+            // "方程式を解く（ガウス消去法）ことで調合比が" の後の行から数値配列を探す
+            const lines = bodyText.split('\n');
+            let foundTrigger = false;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+
+                if (line.includes('方程式を解く（ガウス消去法）ことで調合比が')) {
+                    foundTrigger = true;
+                    console.log('Found trigger line:', line);
+                    continue;
+                }
+
+                if (foundTrigger && line.match(/^#\s*\[[0-9.\s]+\]$/)) {
+                    // 次の行で数値配列を発見
+                    const arrayMatch = line.match(/\[([0-9.\s]+)\]/);
+                    if (arrayMatch) {
+                        const ratioString = arrayMatch[1];
+                        const ratios = ratioString.split(/\s+/).map(s => parseFloat(s)).filter(n => !isNaN(n));
+                        console.log('Found target blend ratio:', ratios);
+                        return ratios;
+                    }
+                }
+            }
+
+            console.warn('Target blend ratio not found in current phase');
+            return [];
+        }
+
+        /* 目標色の計算 */
+        function calculateTargetColor() {
+            console.log('calculateTargetColor called');
+
+            const targetBlendRatio = extractTargetBlendRatio();
+            console.log('baseColors:', baseColors);
+            console.log('targetBlendRatio:', targetBlendRatio);
+
+            if (!baseColors || baseColors.length === 0) {
+                console.error('Base colors not found');
+                return [0, 0, 0];
+            }
+
+            if (!targetBlendRatio || targetBlendRatio.length === 0) {
+                console.error('Target blend ratio not found');
+                return [0, 0, 0];
+            }
+
+            let targetCMY = [0, 0, 0]; // [C, M, Y]
+            let totalRatio = 0;
+
+            baseColors.forEach((color, index) => {
+                if (index < targetBlendRatio.length) {
+                    const cmy = hslToCmy(color);
+                    const ratio = targetBlendRatio[index];
+
+                    console.log(`sub${index} HSL: ${color} -> CMY: [${cmy[0].toFixed(3)}, ${cmy[1].toFixed(3)}, ${cmy[2].toFixed(3)}], ratio: ${ratio}`);
+
+                    targetCMY[0] += cmy[0] * ratio;
+                    targetCMY[1] += cmy[1] * ratio;
+                    targetCMY[2] += cmy[2] * ratio;
+                    totalRatio += ratio;
+                }
+            });
+
+            console.log('Before normalization - targetCMY:', targetCMY, 'totalRatio:', totalRatio);
+
+            // 正規化
+            if (totalRatio > 0) {
+                targetCMY[0] /= totalRatio;
+                targetCMY[1] /= totalRatio;
+                targetCMY[2] /= totalRatio;
+            }
+
+            console.log('Final targetCMY:', targetCMY);
+            return targetCMY;
+        }
+
+        /* 排出済み色の累積計算 */
+        function calculateSubmittedColor(state) {
+            const submittedColors = state ? state.submittedColors : [];
+            console.log('calculateSubmittedColor called, submittedColors.length:', submittedColors.length);
+
+            // 排出がない場合はnullを返す
+            if (submittedColors.length === 0) {
+                console.log('No submitted colors, returning null');
+                return null;
+            }
+
+            let submittedCMY = [0, 0, 0]; // [C, M, Y]
+            let totalAmount = 0;
+
+            submittedColors.forEach(color => {
+                submittedCMY[0] += color.cmy[0] * color.amount;
+                submittedCMY[1] += color.cmy[1] * color.amount;
+                submittedCMY[2] += color.cmy[2] * color.amount;
+                totalAmount += color.amount;
+            });
+
+            // 加重平均
+            if (totalAmount > 0) {
+                submittedCMY[0] /= totalAmount;
+                submittedCMY[1] /= totalAmount;
+                submittedCMY[2] /= totalAmount;
+            }
+
+            console.log('Calculated submitted CMY:', submittedCMY);
+            return submittedCMY;
+        }
+
+        /* ユークリッド距離計算 */
+        function calculateColorDistance(cmy1, cmy2) {
+            const dc = cmy1[0] - cmy2[0];
+            const dm = cmy1[1] - cmy2[1];
+            const dy = cmy1[2] - cmy2[2];
+            return Math.sqrt(dc * dc + dm * dm + dy * dy);
+        }
+
+        /* 全ステップのState事前計算 */
+        function computeAllStates() {
+            allStates = [];
+
+            // 初期状態を作成
+            const initialState = createInitialState();
+            allStates.push(initialState);
+
+            // 各レシピステップを処理
+            const allSteps = [];
+            recipeSteps.forEach((recipe, recipeIndex) => {
+                recipe.steps.forEach((stepText, stepIndex) => {
+                    allSteps.push({
+                        sub: recipe.sub,
+                        step: stepText
+                    });
+                });
+            });
+
+            // 各ステップごとに状態を計算
+            for (let i = 0; i < allSteps.length; i++) {
+                const previousState = allStates[allStates.length - 1];
+                const newState = computeNextState(previousState, allSteps[i], i + 1);
+                allStates.push(newState);
+            }
+        }
+
+        function createInitialState() {
+            const state = new State(0, '初期状態', '各subエリアの初期設定');
+
+            // 各subの初期状態を作成
+            const subLines = phases[current].body.split('\n').filter(l => /^\[sub\d+\]/.test(l));
+            subLines.forEach((line, index) => {
+                const size = parseInt(line.match(/size:\s*(\d+)/)[1]);
+                const amount = parseFloat(line.match(/amount:\s*([0-9.]+)/)[1]);
+
+                const subState = new SubState(index, baseColors[index] || '#888', globalMax);
+                subState.current = new Area(size, amount);
+                subState.updateEmpty();
+                state.subs.push(subState);
+            });
+
+            return state;
+        }
+
+        function computeNextState(previousState, step, stepIndex) {
+            // 前の状態をコピー
+            const newState = cloneState(previousState);
+            newState.stepIndex = stepIndex;
+
+            const subId = step.sub.id;
+            const subState = newState.subs[subId];
+            if (!subState) return newState;
+
+            // ステップタイプを判定して処理
+            if (step.step.includes('チューブから補充')) {
+                newState.hint = `sub${subId} (目標: ${step.sub.target})`;
+                newState.message = `💧 チューブから1.0g補充`;
+                subState.current.amount += 1.0;
+
+            } else if (step.step.includes('新しい位置に仕切りを設置') || step.step.includes('キープ用仕切りを設置')) {
+                newState.hint = `sub${subId} キープ仕切り設置`;
+                newState.message = `🚧 キープエリアを確保`;
+
+                const context = getStepContextFromRecipe(subId);
+                console.log(`Step: ${step.step}, subId: ${subId}, context:`, context);
+                if (context.keepSize) {
+                    const keepSize = context.keepSize;
+                    const useSize = subState.current.size - keepSize;
+                    const totalAmount = subState.current.amount;
+
+                    console.log(`キープ設置: keepSize=${keepSize}, useSize=${useSize}, totalAmount=${totalAmount}`);
+
+                    // キープと使用部分に分割
+                    const keepAmount = totalAmount * (keepSize / subState.current.size);
+                    const useAmount = totalAmount * (useSize / subState.current.size);
+
+                    subState.keeps.push(new Area(keepSize, keepAmount));
+                    subState.current = new Area(useSize, useAmount);
+
+                    console.log('分割後 - keeps:', subState.keeps, 'current:', subState.current);
+                } else {
+                    console.log('context.keepSize not found!');
+                }
+
+            } else if (step.step.includes('拡張先に新しい仕切りを設置')) {
+                newState.hint = `sub${subId} 拡張仕切り設置`;
+                newState.message = `🚧 拡張先の仕切りを準備`;
+
+                const context = getStepContextFromRecipe(subId);
+                if (context.expandSize) {
+                    subState.room = new Area(context.expandSize, 0);
+                }
+
+            } else if (step.step.includes('元の仕切りを解除してインクが流動')) {
+                newState.hint = `sub${subId} 仕切り解除・流動`;
+                newState.message = `🔓 仕切り解除してインクが流動`;
+
+                if (subState.room) {
+                    // 拡張：roomと統合（amountは変わらず、sizeが増えて密度が薄くなる）
+                    const newSize = subState.current.size + subState.room.size;
+                    const currentAmount = subState.current.amount; // 絵具量は変わらない
+                    subState.current = new Area(newSize, currentAmount);
+                    subState.room = null;
+                }
+
+            } else if (step.step.includes('元の仕切りを解除して') && step.step.includes('マス分流れ込み')) {
+                newState.hint = `sub${subId} 拡張完了`;
+                newState.message = `🌊 仕切り解除してインクが流れ込み拡張完了`;
+
+                if (subState.room) {
+                    // 拡張：roomと統合（amountは変わらず、sizeが増えて密度が薄くなる）
+                    const newSize = subState.current.size + subState.room.size;
+                    const currentAmount = subState.current.amount; // 絵具量は変わらない
+                    subState.current = new Area(newSize, currentAmount);
+                    subState.room = null;
+                }
+
+            } else if (step.step.includes('右から') && step.step.includes('位置に仕切りを設置')) {
+                newState.hint = `sub${subId} 排出仕切り設置`;
+                newState.message = `✂️ 排出エリアを分離`;
+
+                const context = getStepContextFromRecipe(subId);
+                if (context.takeSize) {
+                    const takeSize = context.takeSize;
+                    const remainSize = subState.current.size - takeSize;
+                    const totalAmount = subState.current.amount;
+
+                    // 元のcurrentをsize比で分割
+                    const remainAmount = totalAmount * (remainSize / subState.current.size);
+                    const takeAmount = totalAmount * (takeSize / subState.current.size);
+
+                    subState.current = new Area(remainSize, remainAmount);
+                    // 排出部分は pending として保存
+                    subState.pending = new Area(takeSize, takeAmount);
+                }
+
+            } else if (step.step.includes('仕切り解除してメインエリアに排出')) {
+                newState.hint = `sub${subId} 排出完了`;
+                newState.message = `📤 仕切り解除してメインエリアに排出`;
+
+                // 排出色を記録（baseColorsから取得）
+                if (subState.pending && baseColors[subId]) {
+                    const cmy = hslToCmy(baseColors[subId]);
+                    const submittedColor = {
+                        sub: subId,
+                        amount: subState.pending.amount,
+                        cmy: cmy
+                    };
+                    newState.submittedColors.push(submittedColor);
+                    console.log(`Added submitted color for sub${subId}:`, submittedColor);
+                }
+
+                // pending部分を削除（排出）
+                subState.pending = null;
+            }
+
+            subState.updateEmpty();
+            return newState;
+        }
+
+        function cloneState(state) {
+            const newState = new State(state.stepIndex, state.hint, state.message);
+            // 排出色履歴もコピー
+            newState.submittedColors = [...state.submittedColors];
+
+            state.subs.forEach(sub => {
+                const newSub = new SubState(sub.id, sub.color, sub.maxSize);
+                newSub.keeps = sub.keeps.map(keep => new Area(keep.size, keep.amount));
+                newSub.current = new Area(sub.current.size, sub.current.amount);
+                newSub.room = sub.room ? new Area(sub.room.size, sub.room.amount) : null;
+                newSub.pending = sub.pending ? new Area(sub.pending.size, sub.pending.amount) : null;
+                newSub.empty = new Area(sub.empty.size, sub.empty.amount);
+                newState.subs.push(newSub);
+            });
+            return newState;
+        }
+
+        function getStepContextFromRecipe(subId) {
+            const context = {};
+
+            // 該当するsubのレシピを検索
+            const recipe = recipeSteps.find(r => r.sub.id === subId);
+            if (!recipe) {
+                console.log(`Recipe not found for subId: ${subId}`);
+                return context;
+            }
+
+            console.log(`Found recipe for sub${subId}:`, recipe);
+
+            // 元のレシピテキスト（HTML）から直接数値を抽出する
+            const bodyText = phases[current].body;
+            const lines = bodyText.split('\n');
+
+            // sub0のレシピセクションを探す
+            const subRecipeStart = lines.findIndex(l => l.includes(`sub${subId}のレシピ`));
+            if (subRecipeStart === -1) {
+                console.log(`Recipe section not found for sub${subId}`);
+                return context;
+            }
+
+            // 次のsubレシピまでの範囲を取得
+            const nextSubIndex = lines.findIndex((l, index) =>
+                index > subRecipeStart && l.includes('のレシピ(目標調合比')
+            );
+            const subRecipeEnd = nextSubIndex === -1 ? lines.length : nextSubIndex;
+            const subRecipeLines = lines.slice(subRecipeStart, subRecipeEnd);
+
+            console.log(`Sub${subId} recipe lines:`, subRecipeLines);
+
+            // 各レシピ行から数値を抽出
+            subRecipeLines.forEach(line => {
+                console.log(`Checking recipe line: "${line}"`);
+                if (line.includes('マスをキープ')) {
+                    const match = line.match(/(\d+)マスをキープ/);
+                    if (match) {
+                        context.keepSize = parseInt(match[1]);
+                        console.log(`Found keepSize: ${context.keepSize}`);
+                    }
+                }
+                if (line.includes('マス拡張')) {
+                    const expandMatch = line.match(/(\d+)マス拡張.*?(\d+)マスに/);
+                    if (expandMatch) {
+                        context.expandSize = parseInt(expandMatch[1]);
+                        context.newSize = parseInt(expandMatch[2]);
+                        console.log(`Found expansion: ${context.expandSize} -> ${context.newSize}`);
+                    }
+                }
+                if (line.includes('マス取り')) {
+                    const match = line.match(/(\d+)マス取り/);
+                    if (match) {
+                        context.takeSize = parseInt(match[1]);
+                        console.log(`Found takeSize: ${context.takeSize}`);
+                    }
+                }
+            });
+
+            console.log(`Final context for sub${subId}:`, context);
+            return context;
+        }
+
+
+
+
         function render() {
             const viz = document.getElementById('visualization');
             const com = document.getElementById('comments');
             viz.innerHTML = '';
             com.innerHTML = '';
             document.getElementById('phaseLabel').textContent = phases[current].label;
+
+            // フェーズ変更の追跡（排出色履歴は各Stateに含まれるためクリア不要）
+            if (window.lastPhaseIndex !== current) {
+                console.log('Phase changed to:', current);
+                window.lastPhaseIndex = current;
+            }
 
             const lines = phases[current].body.split('\n');
 
@@ -170,12 +1437,36 @@
                 const txt = l.replace(/^#\s*/, '');
                 // 空行保持用に nbsp
                 p.innerHTML = (txt === '' ? '&nbsp;' :
-                    txt.replace(/(キープ|拡張)/g,
+                    txt.replace(/(キープ|拡張|最適なレシピ)/g,
                         '<span class="keyword">$1</span>'));
                 com.appendChild(p);
             });
 
-            /* main */
+            // 最適なレシピセクションがある場合は新しいビジュアライザーを表示
+            const bodyText = phases[current].body;
+            if (bodyText.includes('〇最適なレシピ')) {
+                recipeSteps = parseRecipe(bodyText);
+                currentRecipeStep = 0;
+                if (recipeSteps.length > 0) {
+                    createRecipeVisualizer();
+                    // 新しいState計算システムを初期化
+                    setTimeout(() => {
+                        console.log('recipeSteps:', recipeSteps);
+                        computeAllStates();
+                        console.log('allStates.length:', allStates.length);
+                        if (allStates.length > 0) {
+                            currentStateIndex = 0;
+                            renderState(allStates[0]);
+                            updateRecipeNavigation();
+                        } else {
+                            console.error('allStatesが空です');
+                        }
+                    }, 100);
+                    return; // レシピがある場合は従来の表示をスキップ
+                }
+            }
+
+            /* 従来の表示（レシピがない場合のみ） */
             const title = document.createElement('div');
             title.className = 'visualizer-title';
             title.textContent = `現在の状態`;
@@ -245,6 +1536,33 @@
         document.getElementById('lastBtn').onclick = () => { current = phases.length - 1; render(); };
         document.getElementById('prevBtn').onclick = () => { if (current > 0) { current--; render(); } };
         document.getElementById('nextBtn').onclick = () => { if (current < phases.length - 1) { current++; render(); } };
+
+        /* レシピステップのナビゲーション */
+        function prevRecipeStep() {
+            if (currentStateIndex > 0) {
+                currentStateIndex--;
+                renderState(allStates[currentStateIndex]);
+                updateRecipeNavigation();
+            }
+        }
+
+        function nextRecipeStep() {
+            if (currentStateIndex < allStates.length - 1) {
+                currentStateIndex++;
+                renderState(allStates[currentStateIndex]);
+                updateRecipeNavigation();
+            }
+        }
+
+        function updateRecipeNavigation() {
+            const prevBtn = document.querySelector('.recipe-nav .prev-btn');
+            const nextBtn = document.querySelector('.recipe-nav .next-btn');
+            const stepCounter = document.querySelector('.step-counter');
+
+            if (prevBtn) prevBtn.disabled = currentStateIndex === 0;
+            if (nextBtn) nextBtn.disabled = currentStateIndex === allStates.length - 1;
+            if (stepCounter) stepCounter.textContent = `${currentStateIndex + 1} / ${allStates.length}`;
+        }
     </script>
 </body>
 
